@@ -1,14 +1,26 @@
 import numpy as np
+import pywt
 
 def PRD(x, y):
 	prd = (np.linalg.norm(x-y)/np.linalg.norm(x)*100)
 	return prd 
 
-def WEDD():
+def WEDD(x,y):
+	'''
+	Function to calculate Wavelet energy based diagnostic distortion measure 
+	for ECG signals as in:
+	Wavelet energy based diagnostic distortion measure for ECG
+		MS Manikandan, S Dandapat
+		Biomedical Signal Processing and Control 2 (2), 80-96
+
+	Wavelet used: Daubechies 9/7 'bior4.4' (because Nr = Nd = 4)
+	'''
+	dec5 = pywt.wavedec(x,'bior4.4', level = 5)
+
 	return wedd
 
 
-def MSEPRD():
+def MSEPRD(x,y):
 	return mseprd
 
 def CCD(x, y):
