@@ -1,6 +1,6 @@
 clc;
-load('power_line_interference_ecg.mat');
-load('original_ECG.mat');
+load('../../data/power_line_interference_ecg.mat');
+load('../../data/original_ECG.mat');
 figure(1)
 subplot(2,1,1)
 plot(x_pl);
@@ -20,7 +20,7 @@ plot(ecgplfilt)
 title('Filtered signal')
 PRDpl = sqrt(sum((ecgplfilt - original).^2)/sum(original.^2))*100;
 
-load('base_line_wandering_ecg.mat')
+load('../../data/base_line_wandering_ecg.mat')
 x_bs = baseline_noise_ecg;
 figure(3)
 subplot(2,1,1)
@@ -32,7 +32,7 @@ Yb = x_bs;
 freqz(Yb);
 title('Frequency response - baseline wandering')
 
-fth = 0.0013;
+fth = 0.00325;
 [b,a] = butter(2, fth, 'high');
 ecgbsfilt = filter(b, a, baseline_noise_ecg);
 PRDbs = sqrt(sum((ecgbsfilt - original).^2)/sum(original.^2))*100

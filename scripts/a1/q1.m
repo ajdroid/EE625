@@ -1,6 +1,6 @@
 clc;
 clear all;
-load('original_ECG.mat');
+load('../../data/original_ECG.mat');
 
 % Finding the R val
 threshold = max(original)*0.95;
