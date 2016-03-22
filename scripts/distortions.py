@@ -25,8 +25,10 @@ def MSEPRD(x,y):
 
 def CCD(x, y):
 	D = np.array([[0.75, 0], [0, 0.25]])
-	rInterval = []
-	rWave = []
+	rInt = []
+	rAmp = []
+	rInt1 = []
+	rAmp1 = []
 	a = np.array([rAmp, rInt])
 	b = np.array([rAmp1, rInt1])
 	CCD = np.dot( np.dot((a-b).T,D), (a-b))
